@@ -14,13 +14,14 @@ after_btn.addEventListener("click", ()=>{
     load_pokemon(campo_pesquisa.value)
 })
 
-function load_pokemon(id){
+async function load_pokemon(id){
     url = (`https://pokeapi.co/api/v2/pokemon/${id}`);
     
-    fetch(url)
+    const pokemon = await fetch(url)
     .then(response => response.json())
     .then((data) => {
-        console.log(data)
+        
+        //console.log(data)
         let versoes = data.sprites.versions;
         const selecionar_geracao = document.getElementById('foto_geracao');
         const contentx = document.querySelectorAll('span.pokemon_caracteristicas');
@@ -28,12 +29,13 @@ function load_pokemon(id){
         const li_tipo = document.getElementById('poketipo');
         li_tipo.innerHTML = '';
         let img = document.getElementById("foto_pokemon");
-        img.src = data.sprites.versions['generation-v']['black-white'].animated.front_default;
-        img.onerror = () =>{
-            img.src = data.sprites.front_default;
-        }
         img.style.minWidth = '200px';
         img.style.minHeight = '200px';
+        url_sprite = data.sprites.versions['generation-v']['black-white'].animated.front_default;
+        if (!url_sprite){
+            url_sprite = data.sprites.front_default;
+        }
+        img.src = url_sprite;
 
         
         function colocar_imagem_tipo(item){
@@ -102,14 +104,10 @@ function load_pokemon(id){
         }
 
         habilidades.map(escrever_habilidades);
+        //console.log(versoes)
 
-    
-        console.log(versoes)
-
-        
-
-        
     })
+    .catch(error => alert("Pokemon não encontrado!"))
 }
 load_pokemon(campo_pesquisa.value);
 
