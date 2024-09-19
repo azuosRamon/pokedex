@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POKEDEX</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="reset.css">
+</head>
+<body>
+    <h1>POKEDEX</h1>
+    <div id="pokedex">
+        <div id="pesquisar">
+            <button id="back_btn">←</button>
+            <input type="text" id="poke_nome" value="1">
+            <button id="pesquisar_btn">Pesquisar</button>
+            <button id="after_btn">→</button>
+        </div>
+        <label for="nome"></label>
+        <ul id="content">
+            <li id="nome_pokemon"><span class="pokemon_caracteristicas"></span> #<span class="pokemon_caracteristicas"></span></li>
+            <li id="background_foto"><img alt="Foto do pokemon" id="foto_pokemon"></li>
+            <li id="poketipo"><span class="pokemon_tipos"></span></li>
+            <h2>Caracteristicas</h2>
+            <li class="pokeinfo">Peso: <span class="pokemon_caracteristicas">.</span> kg</li>
+            <li class="pokeinfo">Altura: <span class="pokemon_caracteristicas">.</span> m</li>
+        </ul>
+        <ul id="status">
+            <h2>Status</h2>
+            <li class="pokeinfo">Hp: <span class="pokemon_status">.</span></li>
+            <li class="pokeinfo">Atack: <span class="pokemon_status">.</span></li>
+            <li class="pokeinfo">Defesa: <span class="pokemon_status">.</span></li>
+            <li class="pokeinfo">Velocidade: <span class="pokemon_status">.</span></li>
+            <h2>Habilidades</h2>
+            <li id="habilidade_li"></li>
+        </ul>
+    </div>
+</body>
+<script src="main.js"></script>
+</html>
